@@ -48,11 +48,14 @@ app.post("/add-bathroom", async (req, res) => {
     const collection = await db.collection("Bathrooms");
     
     const body = req.body;
+    console.log(body);
 
+    let fail = false;
 
     ['name', 'description', 'image'].forEach(prop => {
         if (!body[prop]) {
             res.send(`Missing required property: ${prop}`).status(400);
+            fail = true;
             return;
         }
         
@@ -67,6 +70,9 @@ app.post("/add-bathroom", async (req, res) => {
     }
 
     const result = await collection.insertOne(document);
+    if (fail) {
+        return;
+    }
     result.insertedId ? res.send({bathroom_id: document.id}).status(200) : res.status(500).send();
 
 
