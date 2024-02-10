@@ -1,5 +1,46 @@
+.navbar {
+    position: relative;
 .hdr {
     background-color: brown;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+.nav-elements ul {
+    display: flex;    
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.nav-elements ul a {
+    font-size: 16px;
+    font-weight: 400;
+    color: #a39fad;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .nav-elements ul a.active {
+    color: #000000;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .nav-elements ul a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 10px;
+    width: 75%;
+    height: 2px;
+    background-color: #a39fad;
+  }
     margin: 0;
     overflow: hidden;
     border: 2px solid black;
