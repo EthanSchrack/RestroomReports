@@ -6,7 +6,7 @@ import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
 import { useState } from 'react';
 
-import UGAMap from './map.js'; 
+import UGAMap from './UGAMap.js'; 
 
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -75,6 +75,7 @@ function App() {
           <Route path='/explore' element={
             <React.Fragment>
               <p1>Map here...</p1>
+              <UGAMap markers ={mapMarkers}/> {/* UGAMap Component */}
             </React.Fragment>
           } />
         </Routes>
