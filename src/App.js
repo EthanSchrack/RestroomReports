@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import Hdr from './Hdr.js'
+import Hdr from './Hdr.js';
 import Bathroom from "./Bathroom.js";
+import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
 
 const bathroomPictureLink = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/VillaMitre50.jpg/1280px-VillaMitre50.jpg";
@@ -40,6 +41,8 @@ function App() {
   return (
     <div>
       <Hdr />
+      <Detail />
+      {bathroomElements}
       {/* {bathroomElements} */}
       <ToiletList toilets={bathroomList} />
     </div>

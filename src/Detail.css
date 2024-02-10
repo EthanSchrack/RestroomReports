@@ -1,0 +1,28 @@
+.detail {
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.split {
+    height: 90%;
+    width: 40%;
+    position: fixed;
+    z-index: 1;
+    top: 5;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+}
+
+
+.right {
+    right: 0;
+    background-color: rgb(186, 186, 186);
+}
+
+.centered {
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
