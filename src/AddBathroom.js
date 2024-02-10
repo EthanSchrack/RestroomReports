@@ -32,7 +32,7 @@ const AddBathroom = ({onAddBathroom}) => {
 
     return (
         <div className="form">
-            <form onSubmit={submitHandler}>
+                <form onSubmit={submitHandler}>
                 <label>Name</label>
                 <input 
                     name="name"
@@ -61,8 +61,10 @@ const AddBathroom = ({onAddBathroom}) => {
                     value={bathroomFeatures.image}
                     onChange={changeHandler}
                 />
-                <button type="submit">Add Bathroom</button>
+                <button type="submit">Submit</button>
+
             </form>
+
         </div>
     );
 
