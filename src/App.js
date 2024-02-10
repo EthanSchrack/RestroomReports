@@ -4,8 +4,10 @@ import Hdr from './Hdr.js';
 import Bathroom from "./Bathroom.js";
 import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
+import { useState } from 'react';
 
 const bathroomPictureLink = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/VillaMitre50.jpg/1280px-VillaMitre50.jpg";
+
 
 
 // let bathroomElements = bathrooms.map(function(bathroom) {
@@ -37,13 +39,22 @@ const bathroomList = [
   }
 ]
 
+
+
 function App() {
+  const [bathroom, setBathroom] = useState(null);
+
+  const handleBathroomChange = b => {
+    console.log(b);
+    setBathroom(b);
+  }
+
   return (
     <div>
       <Hdr />
-      <Detail />
+      <Detail bathroom={bathroom}/>
       {/* {bathroomElements} */}
-      <ToiletList toilets={bathroomList} />
+      <ToiletList toilets={bathroomList} onBathroomChange={handleBathroomChange} />
     </div>
   );
 }

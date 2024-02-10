@@ -9,7 +9,7 @@ const Bathroom = (props) => {
     return (
         <div class="bathroom-element">
             <span>
-                <h2>{props.name}</h2>
+                <a href="#" onClick={() => props.handleBathroomChange(props)}>{props.name}</a>
                 <p>{props.description} {props.rating} </p>
 
                 <img src={props.image} width="75px" height="75px"/>
