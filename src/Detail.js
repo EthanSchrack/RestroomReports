@@ -57,7 +57,7 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
                     }
                     {(bathroom && isFormVisible) &&
                         <div>
-                           <AddBathroom />
+                           <AddBathroom onAddBathroom={onNeedsUpdate} existingBathroom={bathroom}/>
                             <button onClick={closeFormHandler}>Cancel</button>
                         </div>
                     }

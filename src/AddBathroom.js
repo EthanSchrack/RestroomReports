@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const AddBathroom = ({onAddBathroom}) => {
+const AddBathroom = ({onAddBathroom, existingBathroom}) => {
     
     const [bathroomFeatures, setBathroomFeatures] = useState({
         id: '',
@@ -10,6 +10,17 @@ const AddBathroom = ({onAddBathroom}) => {
         image: ''
     });
 
+    useEffect(() => {
+        if (existingBathroom) {
+            setBathroomFeatures({
+                id: existingBathroom.id,
+                name: existingBathroom.name,
+                description: existingBathroom.description,
+                rating: existingBathroom.rating,
+                image: existingBathroom.image
+            });
+        }
+    }, []);
     
     const changeHandler = (event) => {
         const {name, value} = event.target;
@@ -21,7 +32,8 @@ const AddBathroom = ({onAddBathroom}) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        fetch("http://localhost:8080/add-bathroom", {
+        if (!existingBathroom) {
+            fetch("http://localhost:8080/add-bathroom", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -32,7 +44,33 @@ const AddBathroom = ({onAddBathroom}) => {
                 "description": bathroomFeatures.description,
                 "image": bathroomFeatures.image
               }),
-        }).then(() => onAddBathroom());
+            }).then(() => onAddBathroom())
+        } else {
+            event.preventDefault();
+            let updated = {};
+            for (const [key, value] of Object.entries(bathroomFeatures)) {
+                if (bathroomFeatures[key] != existingBathroom[key]) {
+                    console.log("current " + bathroomFeatures[key] + ", last " + existingBathroom[key]);
+                    Object.assign(updated, {[key]: value});
+                }
+            }
+            if (updated.handleBathroomChange) {
+                delete updated["handleBathroomChange"];
+            }
+            console.log(Object.assign({"id": bathroomFeatures.id}, updated));
+
+            fetch("http://localhost:8080/update-bathroom", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(Object.assign({"id": bathroomFeatures.id}, updated))
+            }).then(() => onAddBathroom());
+     
+        }
+    
+    
         setBathroomFeatures({
             id: '',
             name: '',
@@ -40,6 +78,8 @@ const AddBathroom = ({onAddBathroom}) => {
             rating: '',
             image: ''
         });
+        
+        existingBathroom = null;
     }
 
     return (

@@ -60,7 +60,6 @@ function App() {
   const [bathroom, setBathroom] = useState(null);
   const [bathrooms, setBathrooms] = useState([]);
   const handleBathroomChange = b => {
-    console.log(b);
     setBathroom(b);
   }
 

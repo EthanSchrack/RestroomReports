@@ -11,6 +11,7 @@ const ToiletList = (props) => {
                 <Bathroom 
                 key={Math.random()}
                 handleBathroomChange={props.onBathroomChange}
+                id={toilet.id}
                 name={toilet.name}
                 description={toilet.description}
                 rating={toilet.rating}
