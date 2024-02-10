@@ -60,11 +60,12 @@ function App() {
   const [bathroom, setBathroom] = useState(null);
   const [bathrooms, setBathrooms] = useState([]);
   const handleBathroomChange = b => {
+    console.log(b);
     setBathroom(b);
   }
 
   const updateBathrooms = () => {
-        //console.log("list innit now");
+        setBathroom(null);
         fetch("http://localhost:8080/bathrooms", {
           method: "GET",
           headers: {

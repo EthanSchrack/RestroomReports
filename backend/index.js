@@ -7,7 +7,10 @@ const cors = require('cors')
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+    origin: '*'
+  };
+  app.use(cors(corsOptions));
 
 const uri = "mongodb+srv://wstewart7972:agDfKNdmbACGxx6n@bathroomreports.oxh4tgb.mongodb.net/?retryWrites=true&w=majority";
 const PORT = 8080;
@@ -143,7 +146,7 @@ app.put("/update-bathroom", async (req, res) => {
 app.delete("/delete-bathroom", async(req, res) => {
     const collection = await db.collection("Bathrooms");
     const id = req.query.id;
-
+    res.set('Access-Control-Allow-Origin','*');
     if (!id) {
         res.send("Missing bathroom ID").status(400);
         return;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const AddBathroom = ({onAddBathroom, existingBathroom}) => {
+const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
     
     const [bathroomFeatures, setBathroomFeatures] = useState({
         id: '',
@@ -80,6 +80,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom}) => {
         });
         
         existingBathroom = null;
+        onClose();
     }
 
     return (

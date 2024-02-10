@@ -15,6 +15,20 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
       setIsFormVisible(false);
     };
 
+    const deleteHandler = () => {
+        fetch(`http://localhost:8080/delete-bathroom?id=${bathroom.id}`, {
+            method: "DELETE",
+            mode: 'cors',
+            headers: {
+                'Access-Control-Allow-Origin':'*',  
+                "Content-Type": "application/json",
+            },
+             
+        }).then(() => onNeedsUpdate());
+        
+    }
+
+
     return (    
         <div className="detail">
             <div class="split right">
@@ -41,7 +55,7 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
                     }           
                     {(!bathroom && isFormVisible) &&
                         <div>
-                            <AddBathroom onAddBathroom={onNeedsUpdate}/>
+                            <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler}/>
                             <button onClick={closeFormHandler}>Cancel</button>
                         </div>
                     }
@@ -53,11 +67,12 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
                             <p>{bathroom.description}</p>
                             <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
                             <button onClick={showFormHandler}>Edit</button>
+                            <button onClick={deleteHandler}>Delete</button>
                         </div>
                     }
                     {(bathroom && isFormVisible) &&
                         <div>
-                           <AddBathroom onAddBathroom={onNeedsUpdate} existingBathroom={bathroom}/>
+                           <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler} existingBathroom={bathroom}/>
                             <button onClick={closeFormHandler}>Cancel</button>
                         </div>
                     }
