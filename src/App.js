@@ -5,6 +5,7 @@ import Bathroom from "./Bathroom.js";
 import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
 import { useState } from 'react';
+import UGAMap from './map.js'; 
 
 const bathroomPictureLink = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/VillaMitre50.jpg/1280px-VillaMitre50.jpg";
 
@@ -21,6 +22,11 @@ const bathroomPictureLink = "https://upload.wikimedia.org/wikipedia/commons/thum
 //     </div>
 //   )
 // });
+
+const mapMarkers = [  
+'33.9569,-83.3743', // Tate
+'33.9563,-83.3723'  // Joe Frank
+];
 
 const bathroomList = [
   {
@@ -55,6 +61,7 @@ function App() {
       <Detail bathroom={bathroom}/>
       {/* {bathroomElements} */}
       <ToiletList toilets={bathroomList} onBathroomChange={handleBathroomChange} />
+      <UGAMap markers ={mapMarkers}/> 
     </div>
   );
 }
