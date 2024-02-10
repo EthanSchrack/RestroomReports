@@ -42,7 +42,6 @@ function App() {
     <div>
       <Hdr />
       <Detail />
-      {bathroomElements}
       {/* {bathroomElements} */}
       <ToiletList toilets={bathroomList} />
     </div>
