@@ -1,8 +1,5 @@
-// export default function Bathroom(n, d, r, i) {
-//         const name = n;
-//         const description = d;
-//         const rating = r;
-//         const image = i;
+import React from "react";
+import "./Bathroom.css"
 
 const Bathroom = (props) => {
         
@@ -13,6 +10,7 @@ const Bathroom = (props) => {
                 <p>{props.description} {props.rating} </p>
 
                 <img src={props.image} width="75px" height="75px"/>
+
             </span>
         </div>
     );
