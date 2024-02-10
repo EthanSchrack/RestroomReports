@@ -72,12 +72,12 @@ app.post("/add-bathroom", async (req, res) => {
 
 });
 
-// TODO GET REQUEST!
-app.post("/details", async (req, res) => {
+app.get("/details", async (req, res) => {
     const collection = await db.collection("Bathrooms");
     const body = req.body;
     console.log(body);
-    const id = body["id"];
+    console.log(req.query.id);
+    const id = req.query.id;
 
     if (!id) {
         res.send("Missing bathroom ID").status(400);
