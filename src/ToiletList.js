@@ -8,6 +8,9 @@ const ToiletList = ({toilets}) => {
                 <Toilet 
                 key={Math.random()}
                 name={toilet.name}
+                description={toilet.description}
+                rating={toilet.rating}
+                image={toilet.image}
                 />
             ))}
         </div>
