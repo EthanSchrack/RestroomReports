@@ -1,88 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import './Detail.css'
 import toilet from './goldToilet.jpg'
-import AddBathroom from "./AddBathroom";
-import { isVisible } from "@testing-library/user-event/dist/utils";
 
-const Detail = ({bathroom, onNeedsUpdate}) => {
-
-    const [isFormVisible, setIsFormVisible] = useState(false);
-
-    const showFormHandler = () => {
-        setIsFormVisible(true);
-    };
-    const closeFormHandler = () => {
-      setIsFormVisible(false);
-    };
-
-    const deleteHandler = () => {
-        fetch(`http://localhost:8080/delete-bathroom?id=${bathroom.id}`, {
-            method: "DELETE",
-            mode: 'cors',
-            headers: {
-                'Access-Control-Allow-Origin':'*',  
-                "Content-Type": "application/json",
-            },
-             
-        }).then(() => onNeedsUpdate());
-        
-    }
-
-
-    return (    
+const Detail = ({bathroom}) => {
+        return (    
         <div className="detail">
             <div class="split right">
                 <div class="centered">
-                    {/* {bathroom ? (
-
+                    {bathroom ? (
                         <div>
-                            <h1>Details</h1>
-                            <h2>{bathroom.name}</h2>
-                            <h2>{bathroom.rating + "/5"}</h2>
-                            <p>{bathroom.description}</p>
-                            <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
-                            <button onClick={showFormHandler}>Edit</button>
+                        <h1>Details</h1>
+                        <h2>{bathroom.name}</h2>
+                        <h2>{bathroom.rating + "/5"}</h2>
+                        <p>{bathroom.description}</p>
+                        <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
                         </div>
                     ): (
-                        <div>There is nothing selected!
-                            <button onClick={showFormHandler}>Add Bathroom</button>
-                        </div>
-                    )} */}
-                    {(!bathroom && !isFormVisible) && 
-                        <div>There is nothing selected!
-                            <button onClick={showFormHandler}>Add Bathroom</button>
-                        </div>
-                    }           
-                    {(!bathroom && isFormVisible) &&
-                        <div>
-                            <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler}/>
-                            <button onClick={closeFormHandler}>Cancel</button>
-                        </div>
-                    }
-                    {(bathroom && !isFormVisible) &&
-                        <div>
-                            <h1>Details</h1>
-                            <h2>{bathroom.name}</h2>
-                            <h2>{bathroom.rating + "/5"}</h2>
-                            <p>{bathroom.description}</p>
-                            <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
-                            <button onClick={showFormHandler}>Edit</button>
-                            <button onClick={deleteHandler}>Delete</button>
-                        </div>
-                    }
-                    {(bathroom && isFormVisible) &&
-                        <div>
-                           <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler} existingBathroom={bathroom}/>
-                            <button onClick={closeFormHandler}>Cancel</button>
-                        </div>
-                    }
+                        <div>There is nothing selected!</div>
+                    )}
                 </div>
             </div>
         </div>
-
         
     );
-
 }
 
 
