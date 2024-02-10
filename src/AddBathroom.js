@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const AddBathroom = ({onAddBathroom}) => {
-
+    
     const [bathroomFeatures, setBathroomFeatures] = useState({
         id: '',
         name: '',
@@ -10,6 +10,7 @@ const AddBathroom = ({onAddBathroom}) => {
         image: ''
     });
 
+    
     const changeHandler = (event) => {
         const {name, value} = event.target;
         setBathroomFeatures((prevData) => ({
@@ -20,7 +21,18 @@ const AddBathroom = ({onAddBathroom}) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        onAddBathroom(bathroomFeatures);
+        fetch("http://localhost:8080/add-bathroom", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: JSON.stringify({
+                "name": bathroomFeatures.name,
+                "description": bathroomFeatures.description,
+                "image": bathroomFeatures.image
+              }),
+        }).then(() => onAddBathroom());
         setBathroomFeatures({
             id: '',
             name: '',

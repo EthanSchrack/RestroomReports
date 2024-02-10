@@ -4,7 +4,7 @@ import Hdr from './Hdr.js';
 import Bathroom from "./Bathroom.js";
 import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import UGAMap from './map.js'; 
 
@@ -53,11 +53,31 @@ const bathroomList = [
 
 
 function App() {
-  const [bathroom, setBathroom] = useState(null);
+  useEffect(() => {
+    updateBathrooms();
+  }, []);
 
+  const [bathroom, setBathroom] = useState(null);
+  const [bathrooms, setBathrooms] = useState([]);
   const handleBathroomChange = b => {
     console.log(b);
     setBathroom(b);
+  }
+
+  const updateBathrooms = () => {
+        //console.log("list innit now");
+        fetch("http://localhost:8080/bathrooms", {
+          method: "GET",
+          headers: {
+              "Content-Type": "application/json",
+            }
+      }).then((res) => {
+          res.json().then(list => {
+              console.log(list);
+              setBathrooms(list);
+          });
+  
+      });
   }
 
   return (
@@ -68,8 +88,8 @@ function App() {
         <Routes>
           <Route path="/toilets" element={
             <React.Fragment>
-              <Detail bathroom={bathroom}/>
-              <ToiletList toilets={bathroomList} onBathroomChange={handleBathroomChange} />
+              <Detail bathroom={bathroom} onNeedsUpdate={updateBathrooms}/>
+              <ToiletList toilets={bathrooms} onBathroomChange={handleBathroomChange} />
             </React.Fragment>
           } />
           <Route path='/explore' element={

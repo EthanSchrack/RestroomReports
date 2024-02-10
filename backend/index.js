@@ -3,9 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 var ObjectId = require('mongodb').ObjectId; 
+const cors = require('cors') 
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const uri = "mongodb+srv://wstewart7972:agDfKNdmbACGxx6n@bathroomreports.oxh4tgb.mongodb.net/?retryWrites=true&w=majority";
 const PORT = 8080;
@@ -54,6 +56,9 @@ app.post("/add-bathroom", async (req, res) => {
 
     ['name', 'description', 'image'].forEach(prop => {
         if (!body[prop]) {
+            if (fail) {
+                return;
+            }
             res.send(`Missing required property: ${prop}`).status(400);
             fail = true;
             return;
@@ -72,8 +77,9 @@ app.post("/add-bathroom", async (req, res) => {
     const result = await collection.insertOne(document);
     if (fail) {
         return;
+    } else {
+        result.insertedId ? res.send({bathroom_id: document.id}).status(200) : res.status(500).send();
     }
-    result.insertedId ? res.send({bathroom_id: document.id}).status(200) : res.status(500).send();
 
 
 });

@@ -1,11 +1,14 @@
-import React from "react";
-import Toilet from "./Bathroom.js";
+import React, { useEffect, useState } from "react";
+import Bathroom from "./Bathroom.js";
+
 
 const ToiletList = (props) => {
+
+
     return ( 
         <div>
             {props.toilets.map((toilet) => (
-                <Toilet 
+                <Bathroom 
                 key={Math.random()}
                 handleBathroomChange={props.onBathroomChange}
                 name={toilet.name}

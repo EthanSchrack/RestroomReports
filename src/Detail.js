@@ -4,7 +4,7 @@ import toilet from './goldToilet.jpg'
 import AddBathroom from "./AddBathroom";
 import { isVisible } from "@testing-library/user-event/dist/utils";
 
-const Detail = ({bathroom}) => {
+const Detail = ({bathroom, onNeedsUpdate}) => {
 
     const [isFormVisible, setIsFormVisible] = useState(false);
 
@@ -41,7 +41,7 @@ const Detail = ({bathroom}) => {
                     }           
                     {(!bathroom && isFormVisible) &&
                         <div>
-                            <AddBathroom />
+                            <AddBathroom onAddBathroom={onNeedsUpdate}/>
                             <button onClick={closeFormHandler}>Cancel</button>
                         </div>
                     }
