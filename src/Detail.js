@@ -21,6 +21,7 @@ const Detail = ({bathroom}) => {
                 </div>
             </div>
         </div>
+
         
     );
 }
