@@ -1,5 +1,5 @@
 import React from "react";
-import Toilet from "./Toilet.js";
+import Toilet from "./Bathroom.js";
 
 const ToiletList = ({toilets}) => {
     return ( 
