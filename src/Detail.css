@@ -17,6 +17,9 @@
 .right {
     right: 0;
     background-color: rgb(186, 186, 186);
+    border-left:2px solid black;
+    border-right:2px solid black;
+
 }
 
 .centered {
@@ -25,4 +28,5 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+
 }
