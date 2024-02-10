@@ -10,9 +10,7 @@ const Bathroom = (props) => {
         <div class="bathroom-element">
             <span>
                 <h2>{props.name}</h2>
-                <p>{props.description} {props.rating} </p>
-
-                <img src={props.image} width="75px" height="75px"/>
+                <p>{props.rating} </p>
             </span>
         </div>
     );
