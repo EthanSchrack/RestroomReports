@@ -5,7 +5,12 @@ import Bathroom from "./Bathroom.js";
 import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
 import { useState } from 'react';
+
 import UGAMap from './map.js'; 
+
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 const bathroomPictureLink = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/VillaMitre50.jpg/1280px-VillaMitre50.jpg";
 
@@ -57,11 +62,24 @@ function App() {
 
   return (
     <div>
-      <Hdr />
-      <Detail bathroom={bathroom}/>
-      {/* {bathroomElements} */}
-      <ToiletList toilets={bathroomList} onBathroomChange={handleBathroomChange} />
-      <UGAMap markers ={mapMarkers}/> 
+
+      <BrowserRouter>
+        <Hdr />
+        <Routes>
+          <Route path="/toilets" element={
+            <React.Fragment>
+              <Detail bathroom={bathroom}/>
+              <ToiletList toilets={bathroomList} onBathroomChange={handleBathroomChange} />
+            </React.Fragment>
+          } />
+          <Route path='/explore' element={
+            <React.Fragment>
+              <p1>Map here...</p1>
+            </React.Fragment>
+          } />
+        </Routes>
+      </BrowserRouter>
+
     </div>
   );
 }
