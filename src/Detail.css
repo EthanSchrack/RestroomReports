@@ -6,7 +6,7 @@
 .split {
     height: 90%;
     width: 40%;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     top: 5;
     overflow-x: hidden;

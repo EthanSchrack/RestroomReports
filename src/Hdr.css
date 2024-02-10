@@ -1,5 +1,26 @@
 .hdr {
-    text-align: left;
     background-color: brown;
-    padding: 5px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.hdrwords {
+    text-align: left;
+    padding: 10px;
+    padding-left: 5%;
+    padding-right: 10%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+    position: relative;
+    animation: move-words 10s linear infinite;
+    margin:0;
+}
+
+@keyframes move-words {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -30%;
+    }
 }
