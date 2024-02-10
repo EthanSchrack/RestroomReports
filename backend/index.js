@@ -130,9 +130,7 @@ app.put("/update-bathroom", async (req, res) => {
 
 app.delete("/delete-bathroom", async(req, res) => {
     const collection = await db.collection("Bathrooms");
-    const body = req.body;
-
-    const id = body["id"];
+    const id = req.query.id;
 
     if (!id) {
         res.send("Missing bathroom ID").status(400);
