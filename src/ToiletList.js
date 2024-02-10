@@ -1,12 +1,13 @@
 import React from "react";
 import Toilet from "./Bathroom.js";
 
-const ToiletList = ({toilets}) => {
+const ToiletList = (props) => {
     return ( 
         <div>
-            {toilets.map((toilet) => (
+            {props.toilets.map((toilet) => (
                 <Toilet 
                 key={Math.random()}
+                handleBathroomChange={props.onBathroomChange}
                 name={toilet.name}
                 description={toilet.description}
                 rating={toilet.rating}
