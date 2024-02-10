@@ -3,9 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 var ObjectId = require('mongodb').ObjectId; 
+const cors = require('cors') 
 
 const app = express();
 app.use(express.json());
+const corsOptions = {
+    origin: '*'
+  };
+  app.use(cors(corsOptions));
 
 const uri = "mongodb+srv://wstewart7972:agDfKNdmbACGxx6n@bathroomreports.oxh4tgb.mongodb.net/?retryWrites=true&w=majority";
 const PORT = 8080;
@@ -54,6 +59,9 @@ app.post("/add-bathroom", async (req, res) => {
 
     ['name', 'description', 'image'].forEach(prop => {
         if (!body[prop]) {
+            if (fail) {
+                return;
+            }
             res.send(`Missing required property: ${prop}`).status(400);
             fail = true;
             return;
@@ -72,8 +80,9 @@ app.post("/add-bathroom", async (req, res) => {
     const result = await collection.insertOne(document);
     if (fail) {
         return;
+    } else {
+        result.insertedId ? res.send({bathroom_id: document.id}).status(200) : res.status(500).send();
     }
-    result.insertedId ? res.send({bathroom_id: document.id}).status(200) : res.status(500).send();
 
 
 });
@@ -137,7 +146,7 @@ app.put("/update-bathroom", async (req, res) => {
 app.delete("/delete-bathroom", async(req, res) => {
     const collection = await db.collection("Bathrooms");
     const id = req.query.id;
-
+    res.set('Access-Control-Allow-Origin','*');
     if (!id) {
         res.send("Missing bathroom ID").status(400);
         return;
