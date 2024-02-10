@@ -1,3 +1,6 @@
+import React from "react";
+import './Hdr.css'
+
 const Hdr = () => {
     return (    
         <div className="hdr">
