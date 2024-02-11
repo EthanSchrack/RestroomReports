@@ -4,7 +4,7 @@ import MapPickerContainer from "./MapPickerContainer";
 
 import "./AddBathroom.css";
 
-const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
+const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
 
     const [bathroomFeatures, setBathroomFeatures] = useState({
         id: '',
@@ -29,9 +29,9 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
             });
         }
     }, []);
-    
+
     const changeHandler = (event) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         setBathroomFeatures((prevData) => ({
             ...prevData,
             [name]: value,
@@ -42,19 +42,19 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
         event.preventDefault();
         if (!existingBathroom) {
             fetch("http://localhost:8080/add-bathroom", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              body: JSON.stringify({
-                "name": bathroomFeatures.name,
-                "description": bathroomFeatures.description,
-                "image": bathroomFeatures.image,
-                "rating": bathroomFeatures.rating,
-                "latitude": bathroomFeatures.latitude,
-                "longitude": bathroomFeatures.longitude
-              }),
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify({
+                    "name": bathroomFeatures.name,
+                    "description": bathroomFeatures.description,
+                    "image": bathroomFeatures.image,
+                    "rating": bathroomFeatures.rating,
+                    "latitude": bathroomFeatures.latitude,
+                    "longitude": bathroomFeatures.longitude
+                }),
             }).then(() => onAddBathroom())
         } else {
             event.preventDefault();
@@ -62,13 +62,13 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
             for (const [key, value] of Object.entries(bathroomFeatures)) {
                 if (bathroomFeatures[key] != existingBathroom[key]) {
                     console.log("current " + bathroomFeatures[key] + ", last " + existingBathroom[key]);
-                    Object.assign(updated, {[key]: value});
+                    Object.assign(updated, { [key]: value });
                 }
             }
             if (updated.handleBathroomChange) {
                 delete updated["handleBathroomChange"];
             }
-            console.log(Object.assign({"id": bathroomFeatures.id}, updated));
+            console.log(Object.assign({ "id": bathroomFeatures.id }, updated));
 
             fetch("http://localhost:8080/update-bathroom", {
                 method: "PUT",
@@ -76,12 +76,12 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                     "Content-Type": "application/json",
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: JSON.stringify(Object.assign({"id": bathroomFeatures.id}, updated))
+                body: JSON.stringify(Object.assign({ "id": bathroomFeatures.id }, updated))
             }).then(() => onAddBathroom());
-     
+
         }
-    
-    
+
+
         setBathroomFeatures({
             id: '',
             name: '',
@@ -91,16 +91,16 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
             latitude: null,
             longitude: null
         });
-        
+
         existingBathroom = null;
         onClose();
     }
 
     return (
         <div className="form">
-                <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler}>
                 <label class="text">Name</label>
-                <input 
+                <input
                     name="name"
                     type="text"
                     value={bathroomFeatures.name}
@@ -109,7 +109,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 />
                 <br></br>
                 <label class="text">Description</label>
-                <input 
+                <input
                     name="description"
                     type="text"
                     value={bathroomFeatures.description}
@@ -118,7 +118,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 />
                 <br></br>
                 <label class="text">Rating</label>
-                <input 
+                <input
                     name="rating"
                     type="number"
                     min="1"
@@ -129,7 +129,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 />
                 <br></br>
                 <label class="text">Image</label>
-                <input 
+                <input
                     name="image"
                     type="text"
                     value={bathroomFeatures.image}
@@ -138,7 +138,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 />
                 <br></br>
                 <label class="text">Latitude</label>
-                <input 
+                <input
                     name="latitude"
                     type="number"
                     value={bathroomFeatures.latitude}
@@ -147,7 +147,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 />
                 <br></br>
                 <label class="text">Longitude</label>
-                <input 
+                <input
                     name="longitude"
                     type="number"
                     value={bathroomFeatures.longitude}
@@ -158,7 +158,9 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 <button type="submit" class="submit">Submit</button>
 
             </form>
-            <MapPickerContainer />
+            <span class="map">
+                <MapPickerContainer />
+            </span>
         </div>
     );
 

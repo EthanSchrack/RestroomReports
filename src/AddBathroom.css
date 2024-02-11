@@ -8,10 +8,15 @@
     font-size: 20px;
     font-weight: bold;
     padding:20px;
+    position: relative;
+    top:120px;
 }
 
 .textbox {
     border-radius: 5%;
+    width:200px;
+    position: relative;
+    top:120px;
 }
 
 .submit {
@@ -24,7 +29,7 @@
     font-weight: bold;
     border: 3px outset rgb(136, 136, 136);
     background-color: aquamarine;
-    top:20px;
+    top:120px;
     right:20px;
     position: relative;
 
@@ -34,3 +39,8 @@
     background-color: rgb(86, 171, 143);
 }
 
+.map {
+    position: relative;
+    top:120px;
+    left:170px;
+}

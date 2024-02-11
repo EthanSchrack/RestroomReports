@@ -8,7 +8,7 @@ export function createStars(name, rating) {
     }
     
     for (let i = text.length; i < 5; i++) {
-        text += "☆";
+        text += " ☆";
     }
 
     if (starsContainer.innerHTML.length < rating - .99) {
