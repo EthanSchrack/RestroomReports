@@ -6,6 +6,7 @@ import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
 import { useState, useEffect } from 'react';
 
+
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MapWithMarkers from './MapsWithMarkers.js';
@@ -44,9 +45,14 @@ const bathroomList = [
 ]
 
 
-const App = () => {
-  const [bathroom, setBathroom] = useState(null);
+function App() {
+  useEffect(() => {
+    updateBathrooms();
+  }, []);
 
+
+  const [bathroom, setBathroom] = useState(null);
+  const [bathrooms, setBathrooms] = useState([]);
   const handleBathroomChange = b => {
     console.log(b);
     setBathroom(b);
@@ -59,6 +65,22 @@ const App = () => {
     { lat: 33.944787503212645, lng: -83.37645765229763}, // snelling
   ];
 
+  const updateBathrooms = () => {
+        setBathroom(null);
+        fetch("http://localhost:8080/bathrooms", {
+          method: "GET",
+          headers: {
+              "Content-Type": "application/json",
+            }
+      }).then((res) => {
+          res.json().then(list => {
+              console.log(list);
+              setBathrooms(list);
+          });
+  
+      });
+  }
+
   return (
     <div>
 
@@ -67,8 +89,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={
             <React.Fragment>
-              <Detail bathroom={bathroom}/>
-              <ToiletList toilets={bathroomList} onBathroomChange={handleBathroomChange} />
+              <Detail bathroom={bathroom} onNeedsUpdate={updateBathrooms}/>
+              <ToiletList toilets={bathrooms} onBathroomChange={handleBathroomChange} />
             </React.Fragment>
           } />
           <Route path='/explore' element={

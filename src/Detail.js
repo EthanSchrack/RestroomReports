@@ -4,7 +4,7 @@ import toilet from './goldToilet.jpg'
 import AddBathroom from "./AddBathroom";
 import { isVisible } from "@testing-library/user-event/dist/utils";
 
-const Detail = ({bathroom}) => {
+const Detail = ({bathroom, onNeedsUpdate}) => {
 
     const [isFormVisible, setIsFormVisible] = useState(false);
 
@@ -14,6 +14,20 @@ const Detail = ({bathroom}) => {
     const closeFormHandler = () => {
       setIsFormVisible(false);
     };
+
+    const deleteHandler = () => {
+        fetch(`http://localhost:8080/delete-bathroom?id=${bathroom.id}`, {
+            method: "DELETE",
+            mode: 'cors',
+            headers: {
+                'Access-Control-Allow-Origin':'*',  
+                "Content-Type": "application/json",
+            },
+             
+        }).then(() => onNeedsUpdate());
+        
+    }
+
 
     return (    
         <div className="detail">
@@ -41,7 +55,7 @@ const Detail = ({bathroom}) => {
                     }           
                     {(!bathroom && isFormVisible) &&
                         <div>
-                            <AddBathroom />
+                            <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler}/>
                             <button onClick={closeFormHandler}>Cancel</button>
                         </div>
                     }
@@ -53,17 +67,20 @@ const Detail = ({bathroom}) => {
                             <p>{bathroom.description}</p>
                             <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
                             <button onClick={showFormHandler}>Edit</button>
+                            <button onClick={deleteHandler}>Delete</button>
+                            <button onClick={onNeedsUpdate}>Close</button>
                         </div>
                     }
                     {(bathroom && isFormVisible) &&
                         <div>
-                           <AddBathroom />
+                           <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler} existingBathroom={bathroom}/>
                             <button onClick={closeFormHandler}>Cancel</button>
                         </div>
                     }
                 </div>
             </div>
         </div>
+
         
     );
 
