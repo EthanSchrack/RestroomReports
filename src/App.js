@@ -5,6 +5,7 @@ import Bathroom from "./Bathroom.js";
 import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
 import { useState, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 
 
 import React from 'react';
@@ -104,6 +105,12 @@ function App() {
               <MapWithMarkers coordinates={coordinates} />
             </React.Fragment>
           } />
+          <Route path='*' element={
+            <div>
+              <h3>Error</h3>
+              <p>Page not found.</p>
+            </div>
+          }/>
         </Routes>
       </BrowserRouter>
 
