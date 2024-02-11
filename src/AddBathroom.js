@@ -7,7 +7,9 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
         name: '',
         description: '',
         rating: '',
-        image: ''
+        image: '',
+        latitude: 0.0,
+        longitude: 0.0
     });
 
     useEffect(() => {
@@ -17,7 +19,9 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 name: existingBathroom.name,
                 description: existingBathroom.description,
                 rating: existingBathroom.rating,
-                image: existingBathroom.image
+                image: existingBathroom.image,
+                latitude: existingBathroom.latitude,
+                longitude: existingBathroom.longitude
             });
         }
     }, []);
@@ -42,7 +46,9 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
               body: JSON.stringify({
                 "name": bathroomFeatures.name,
                 "description": bathroomFeatures.description,
-                "image": bathroomFeatures.image
+                "image": bathroomFeatures.image,
+                "latitude": bathroomFeatures.latitude,
+                "longitude": bathroomFeatures.longitude
               }),
             }).then(() => onAddBathroom())
         } else {
@@ -76,7 +82,9 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
             name: '',
             description: '',
             rating: '',
-            image: ''
+            image: '',
+            latitude: null,
+            longitude: null
         });
         
         existingBathroom = null;
@@ -112,6 +120,20 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                     name="image"
                     type="text"
                     value={bathroomFeatures.image}
+                    onChange={changeHandler}
+                />
+                <label>Latitude</label>
+                <input 
+                    name="latitude"
+                    type="number"
+                    value={bathroomFeatures.latitude}
+                    onChange={changeHandler}
+                />
+                <label>Longitude</label>
+                <input 
+                    name="longitude"
+                    type="number"
+                    value={bathroomFeatures.longitude}
                     onChange={changeHandler}
                 />
                 <button type="submit">Submit</button>
