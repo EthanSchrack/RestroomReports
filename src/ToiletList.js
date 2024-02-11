@@ -16,6 +16,8 @@ const ToiletList = (props) => {
                 description={toilet.description}
                 rating={toilet.rating}
                 image={toilet.image}
+                latitude={toilet.latitude}
+                longitude={toilet.longitude}
                 />
             ))}
         </div>
