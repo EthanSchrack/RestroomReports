@@ -1,12 +1,35 @@
 import React, { useEffect, useState } from "react";
+import MapPicker from 'react-google-map-picker';
+import MapPickerContainer from "./MapPickerContainer";
+
+
 
 const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
-    
+
+    // const DefaultLocation = { lat: 33.949771, lng: -83.3722669 };
+    // const defaultZoom = 15;
+    // const [defaultLocation, setDefaultLocation] = useState(DefaultLocation);
+    // const [location, setLocation] = useState(DefaultLocation);
+    // const [zoom, setZoom] = useState(defaultZoom);
+
+    // function handleChangeLocation(lat, lng) {
+    //     setLocation({lat:lat, lng:lng});
+    // }
+
+    // function handleChangeZoom (newZoom) {
+    //     setZoom(newZoom);
+    // }
+
+    // function handleResetLocation() {
+    //     setDefaultLocation({ ... defaultLocation});
+    //     setZoom(defaultZoom);
+    // }
+
     const [bathroomFeatures, setBathroomFeatures] = useState({
         id: '',
         name: '',
         description: '',
-        rating: '',
+        rating: 0,
         image: '',
         latitude: 0.0,
         longitude: 0.0
@@ -20,8 +43,8 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 description: existingBathroom.description,
                 rating: existingBathroom.rating,
                 image: existingBathroom.image,
-                latitude: existingBathroom.latitude,
-                longitude: existingBathroom.longitude
+                latitude: parseFloat(existingBathroom.latitude),
+                longitude: parseFloat(existingBathroom.longitude)
             });
         }
     }, []);
@@ -47,6 +70,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 "name": bathroomFeatures.name,
                 "description": bathroomFeatures.description,
                 "image": bathroomFeatures.image,
+                "rating": bathroomFeatures.rating,
                 "latitude": bathroomFeatures.latitude,
                 "longitude": bathroomFeatures.longitude
               }),
@@ -112,6 +136,8 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 <input 
                     name="rating"
                     type="number"
+                    min="1"
+                    max="5"
                     value={bathroomFeatures.rating}
                     onChange={changeHandler}
                 />
@@ -139,7 +165,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 <button type="submit">Submit</button>
 
             </form>
-
+            <MapPickerContainer />
         </div>
     );
 

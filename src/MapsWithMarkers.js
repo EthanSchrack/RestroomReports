@@ -11,7 +11,10 @@ const MapWithMarkers = ({ coordinates }) => {
         zoom: 15,
       });
 
+      console.log("PASSED COORDINATES");
+      console.log(coordinates);
       coordinates.forEach(coord => {
+        
         new window.google.maps.Marker({
           position: coord,
           map: map,

@@ -31,8 +31,8 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
 
     return (    
         <div className="detail">
-            <div class="split right">
-                <div class="centered">
+            <div className="split right">
+                <div className="centered">
                     {/* {bathroom ? (
 
                         <div>
@@ -65,6 +65,8 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
                             <h2>{bathroom.name}</h2>
                             <h2>{bathroom.rating + "/5"}</h2>
                             <p>{bathroom.description}</p>
+                            
+                            
                             <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
                             <button onClick={showFormHandler}>Edit</button>
                             <button onClick={deleteHandler}>Delete</button>
