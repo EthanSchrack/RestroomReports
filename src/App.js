@@ -6,11 +6,10 @@ import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
 import { useState, useEffect } from 'react';
 
-import UGAMap from './map.js'; 
 
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import MapWithMarkers from './MapsWithMarkers.js';
 
 const bathroomPictureLink = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/VillaMitre50.jpg/1280px-VillaMitre50.jpg";
 
@@ -28,28 +27,22 @@ const bathroomPictureLink = "https://upload.wikimedia.org/wikipedia/commons/thum
 //   )
 // });
 
-const mapMarkers = [  
-'33.9569,-83.3743', // Tate
-'33.9563,-83.3723'  // Joe Frank
-];
-
 const bathroomList = [
   {
     id: 'b1',
     name: 'Terry toilet',
     description: 'hellooo',
-    rating: '5.0',
+    rating: '3.0',
     image: bathroomPictureLink
   },
   {
     id: 'b3',
     name: 'Snelling toilet',
     description: 'hellooo',
-    rating: '5.0',
+    rating: '2.0',
     image: bathroomPictureLink
   }
 ]
-
 
 
 function App() {
@@ -57,12 +50,20 @@ function App() {
     updateBathrooms();
   }, []);
 
+
   const [bathroom, setBathroom] = useState(null);
   const [bathrooms, setBathrooms] = useState([]);
   const handleBathroomChange = b => {
     console.log(b);
     setBathroom(b);
   }
+  
+  const coordinates = [
+    { lat: 33.9505255, lng: -83.3752532 }, // tate
+    { lat: 33.939007914812656, lng: -83.37112344845274 }, // joe frank
+    { lat: 33.938112288045616, lng: -83.36809391804614 }, // busbee hall
+    { lat: 33.944787503212645, lng: -83.37645765229763}, // snelling
+  ];
 
   const updateBathrooms = () => {
         setBathroom(null);
@@ -86,7 +87,7 @@ function App() {
       <BrowserRouter>
         <Hdr />
         <Routes>
-          <Route path="/toilets" element={
+          <Route path="/" element={
             <React.Fragment>
               <Detail bathroom={bathroom} onNeedsUpdate={updateBathrooms}/>
               <ToiletList toilets={bathrooms} onBathroomChange={handleBathroomChange} />
@@ -95,6 +96,7 @@ function App() {
           <Route path='/explore' element={
             <React.Fragment>
               <p1>Map here...</p1>
+              <MapWithMarkers coordinates={coordinates} />
             </React.Fragment>
           } />
         </Routes>
