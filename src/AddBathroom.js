@@ -57,6 +57,17 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
         }));
     };
 
+    const locationChangeHandler = (lat, lng) => {
+        console.log(`lat ${lat} lng ${lng}`)
+        bathroomFeatures.latitude = lat;
+        setBathroomFeatures((prevData) => ({
+            ...prevData,
+            longitude: lng,
+            latitude: lat
+        }));
+        
+    }
+
     const submitHandler = (event) => {
         event.preventDefault();
         if (!existingBathroom) {
@@ -148,24 +159,11 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                     value={bathroomFeatures.image}
                     onChange={changeHandler}
                 />
-                <label>Latitude</label>
-                <input 
-                    name="latitude"
-                    type="number"
-                    value={bathroomFeatures.latitude}
-                    onChange={changeHandler}
-                />
-                <label>Longitude</label>
-                <input 
-                    name="longitude"
-                    type="number"
-                    value={bathroomFeatures.longitude}
-                    onChange={changeHandler}
-                />
+                
                 <button type="submit">Submit</button>
 
             </form>
-            <MapPickerContainer />
+            <MapPickerContainer onLocationChange={locationChangeHandler} />
         </div>
     );
 

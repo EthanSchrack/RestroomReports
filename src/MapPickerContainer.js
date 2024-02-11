@@ -4,7 +4,7 @@ import MapPicker from 'react-google-map-picker'
 
 const DefaultZoom = 15;
 
-const MapPickerContainer = () => {
+const MapPickerContainer = ({onLocationChange}) => {
 
   const [clickedLatLng, setClickedLatLng] = useState(null);
 
@@ -18,6 +18,7 @@ const MapPickerContainer = () => {
 
       map.addListener("click", (mapsMouseEvent) => {
         setClickedLatLng(mapsMouseEvent.latLng.toJSON());
+        onLocationChange(mapsMouseEvent.latLng.toJSON().lat, mapsMouseEvent.latLng.toJSON().lng);
       });
     };
 
@@ -33,7 +34,7 @@ const MapPickerContainer = () => {
 
   return (
     <div>
-        <div id='map' style={{height: '400px' }}></div>
+        <div id='map' style={{height: '100px' }}></div>
         {clickedLatLng && (
         <div>
           <h2>Clicked Location</h2>
