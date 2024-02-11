@@ -14,5 +14,5 @@ export function createStars(name, rating) {
     if (starsContainer.innerHTML.length < rating - .99) {
         starsContainer.innerHTML += text;
     }
-    //console.log(starsContainer.innerHTML);
+    console.log("update");
 }

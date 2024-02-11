@@ -6,7 +6,7 @@ import Detail from "./Detail.js";
 import ToiletList from './ToiletList.js';
 import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
-
+import Poop from './Poop.js';
 
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -92,6 +92,13 @@ function App() {
     <div >
 
       <BrowserRouter>
+      <Poop />
+      <span id='poop1' class='poop'></span>
+      <span id='poop2' class='poop'></span>
+      <span id='poop3' class='poop'></span>
+      <span id='poop4' class='poop'></span>
+
+
         <Hdr />
         <Routes>
           <Route path="/" element={
