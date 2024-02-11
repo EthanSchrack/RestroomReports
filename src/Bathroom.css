@@ -3,17 +3,14 @@
 }
 
 .bathroom-element {
-    /* background-color:rgb(211, 255, 255); */
     background-image: linear-gradient(to right, rgb(180, 253, 255) , rgb(213, 252, 255));
 
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding:5px;
     margin: 1%;
-    /* margin-right: 41%; */
     min-height: 75px;
     display:flex;
     width:855px;
-    /* height:fit-content; */
     border:2px outset rgb(182, 57, 22);
     border-radius: 10px;
     overflow-wrap:break-word;

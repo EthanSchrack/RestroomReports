@@ -64,7 +64,7 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
                         }
                         {(bathroom && !isFormVisible) &&
                             <div>
-                                
+                                <h1></h1>
                                 <h1>{bathroom.name}</h1>
                                 <h2>{bathroom.rating + "/5"}</h2>
                                 <p>{bathroom.description}</p>

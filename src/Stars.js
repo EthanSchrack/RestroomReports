@@ -15,4 +15,5 @@ export function createStars(name, rating) {
         starsContainer.innerHTML += text;
     }
     //console.log(starsContainer.innerHTML);
+    console.log("update");
 }

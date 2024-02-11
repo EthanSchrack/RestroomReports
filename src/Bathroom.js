@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from "react";
 import "./Bathroom.css";
 import {createStars} from "./Stars";
+import { spawnPoop } from "./Poop";
 
 const Bathroom = (props) => {
     useEffect(() => {
         createStars(props.name, props.rating);
+        spawnPoop();
     }, [props.name]);
     
     return (
         <div class="scrolling">
+
             <div className="bathroom-element" onClick={() => props.handleBathroomChange(props)}>
                 <span>
                     <div className="bathroom-element-picture">
@@ -20,9 +23,8 @@ const Bathroom = (props) => {
                         <div> <span class="bold">{props.name} <br></br>Score:{props.rating}</span> <br></br> 
                             {props.description} 
                         </div>
+
                     </div>
-                    {/* <div class="stars"> */}
-                    {/* </div> */}
                 </span>
             </div>
         </div>
