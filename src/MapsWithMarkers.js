@@ -19,7 +19,7 @@ const MapWithMarkers = ({ coordinates }) => {
           position: coord,
           map: map,
           icon: {
-            url: `data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="16">${String.fromCodePoint(0x1F4A9)}</text></svg>`,
+            url: `data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="16">${String.fromCodePoint(0x1F4A9)}</text></svg>`,
           }
         });
       });
