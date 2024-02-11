@@ -64,10 +64,10 @@
 
 @keyframes move-words {
     0% {
-        left: 150%;
+        left: 100%;
     }
 
     100% {
-        left: -40%;
+        left: -80%;
     }
 }

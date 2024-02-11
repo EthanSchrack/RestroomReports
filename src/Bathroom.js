@@ -15,12 +15,15 @@ const Bathroom = (props) => {
                     <div class="bathroom-element-picture">
                         <img src={props.image} width="75px" height="75px"/>
                     </div>
-                    <div class="bathroom-element-text">
-                        <div>{props.name}</div>
-                        <div id = {props.name}></div>
+                    <div id = {props.name} class="stars" ></div>
 
-                        <p>{props.description} {props.rating} </p>
+                    <div class="bathroom-element-text">
+                        <div>{props.name} <br></br>Score:{props.rating} <br></br> 
+                            {props.description} 
+                        </div>
                     </div>
+                    {/* <div class="stars"> */}
+                    {/* </div> */}
                 </span>
             </div>
         </body>
