@@ -8,7 +8,7 @@ const Bathroom = (props) => {
     }, [props.name]);
     
     return (
-        <div>
+        <div class="scrolling">
             <div className="bathroom-element" onClick={() => props.handleBathroomChange(props)}>
                 <span>
                     <div className="bathroom-element-picture">
@@ -17,7 +17,7 @@ const Bathroom = (props) => {
                     <div id = {props.name} class="stars" ></div>
 
                     <div class="bathroom-element-text">
-                        <div>{props.name} <br></br>Score:{props.rating} <br></br> 
+                        <div> <span class="bold">{props.name} <br></br>Score:{props.rating}</span> <br></br> 
                             {props.description} 
                         </div>
                     </div>

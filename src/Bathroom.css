@@ -1,9 +1,11 @@
 .bathroom-element:hover {
-    background-color: aqua;
+    background-image: linear-gradient(to right, rgb(200, 180, 146) ,rgb(251, 220, 166));
 }
 
 .bathroom-element {
-    background-color:rgb(211, 255, 255);
+    /* background-color:rgb(211, 255, 255); */
+    background-image: linear-gradient(to right, rgb(180, 253, 255) , rgb(213, 252, 255));
+
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding:5px;
     margin: 1%;
@@ -23,6 +25,8 @@
     text-align: left;
     width: 100px;
     float:left;
+    overflow: hidden;
+
 }
 
 .bathroom-element-text {
@@ -35,10 +39,20 @@
     overflow: hidden;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .stars{
     text-align:left;
     left:750px;
     width:850px;
     position: absolute;
+    overflow: hidden;
+
 }
 
+.scrolling {
+    overflow: hidden;
+    position: relative;
+}

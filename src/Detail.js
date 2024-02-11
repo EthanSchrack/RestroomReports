@@ -30,58 +30,61 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
 
 
     return (    
-        <div className="detail">
-            <div className="split right">
-                <div className="centered">
-                    {/* {bathroom ? (
+        <div class="overflow">
 
-                        <div>
-                            <h1>Details</h1>
-                            <h2>{bathroom.name}</h2>
-                            <h2>{bathroom.rating + "/5"}</h2>
-                            <p>{bathroom.description}</p>
-                            <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
-                            <button onClick={showFormHandler}>Edit</button>
-                        </div>
-                    ): (
-                        <div>There is nothing selected!
-                            <button onClick={showFormHandler}>Add Bathroom</button>
-                        </div>
-                    )} */}
-                    {(!bathroom && !isFormVisible) && 
-                        <div class = "select-text">There is nothing selected!
-                            <br></br>
-                            <button onClick={showFormHandler} class="button add">Add <br></br>Bathroom</button>
-                        </div>
-                    }           
-                    {(!bathroom && isFormVisible) &&
-                        <div>
-                            <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler}/>
-                            <button onClick={closeFormHandler}class="button cancel">Cancel</button>
-                        </div>
-                    }
-                    {(bathroom && !isFormVisible) &&
-                        <div>
-                            <h1>Details</h1>
-                            <h2>{bathroom.name}</h2>
-                            <h2>{bathroom.rating + "/5"}</h2>
-                            <p>{bathroom.description}</p>
-                            
-                            
-                            <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
-                            <br></br>
-                            <button onClick={showFormHandler} class="button edit">Edit</button>
-                            <button onClick={deleteHandler} class="button delete">Delete</button>
-                            <button onClick={onNeedsUpdate} class="button close">Close</button>
-                        </div>
-                    }
-                    {(bathroom && isFormVisible) &&
-                        <div>
-                           <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler} existingBathroom={bathroom}/>
-                            <button onClick={closeFormHandler} class="button cancel">Cancel</button>
-                            
-                        </div>
-                    }
+            <div className="detail">
+                <div className="split right">
+                    <div className="centered">
+                        {/* {bathroom ? (
+
+                            <div>
+                                <h1>Details</h1>
+                                <h2>{bathroom.name}</h2>
+                                <h2>{bathroom.rating + "/5"}</h2>
+                                <p>{bathroom.description}</p>
+                                <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
+                                <button onClick={showFormHandler}>Edit</button>
+                            </div>
+                        ): (
+                            <div>There is nothing selected!
+                                <button onClick={showFormHandler}>Add Bathroom</button>
+                            </div>
+                        )} */}
+                        {(!bathroom && !isFormVisible) && 
+                            <div class = "select-text">There is nothing selected!
+                                <br></br>
+                                <button onClick={showFormHandler} class="button add">Add <br></br>Bathroom</button>
+                            </div>
+                        }           
+                        {(!bathroom && isFormVisible) &&
+                            <div>
+                                <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler}/>
+                                <button onClick={closeFormHandler}class="button cancel">Cancel</button>
+                            </div>
+                        }
+                        {(bathroom && !isFormVisible) &&
+                            <div>
+                                
+                                <h1>{bathroom.name}</h1>
+                                <h2>{bathroom.rating + "/5"}</h2>
+                                <p>{bathroom.description}</p>
+                                
+                                
+                                <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
+                                <br></br>
+                                <button onClick={showFormHandler} class="button edit">Edit</button>
+                                <button onClick={deleteHandler} class="button delete">Delete</button>
+                                <button onClick={onNeedsUpdate} class="button close">Close</button>
+                            </div>
+                        }
+                        {(bathroom && isFormVisible) &&
+                            <div>
+                            <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler} existingBathroom={bathroom}/>
+                                <button onClick={closeFormHandler} class="button cancel">Cancel</button>
+                                
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

@@ -34,13 +34,6 @@ const MapPickerContainer = () => {
   return (
     <div>
         <div id='map' style={{height: '400px' }}></div>
-        {clickedLatLng && (
-        <div>
-          <h2>Clicked Location</h2>
-          <p>Latitude: {clickedLatLng.lat}</p>
-          <p>Longitude: {clickedLatLng.lng}</p>
-        </div>
-      )}
      
     </div>
   );
