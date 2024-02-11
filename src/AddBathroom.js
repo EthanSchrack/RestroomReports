@@ -6,7 +6,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
         id: '',
         name: '',
         description: '',
-        rating: '',
+        rating: 0,
         image: '',
         latitude: 0.0,
         longitude: 0.0
@@ -20,8 +20,8 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 description: existingBathroom.description,
                 rating: existingBathroom.rating,
                 image: existingBathroom.image,
-                latitude: existingBathroom.latitude,
-                longitude: existingBathroom.longitude
+                latitude: parseFloat(existingBathroom.latitude),
+                longitude: parseFloat(existingBathroom.longitude)
             });
         }
     }, []);
@@ -47,6 +47,7 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 "name": bathroomFeatures.name,
                 "description": bathroomFeatures.description,
                 "image": bathroomFeatures.image,
+                "rating": bathroomFeatures.rating,
                 "latitude": bathroomFeatures.latitude,
                 "longitude": bathroomFeatures.longitude
               }),
@@ -112,6 +113,8 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                 <input 
                     name="rating"
                     type="number"
+                    min="1"
+                    max="5"
                     value={bathroomFeatures.rating}
                     onChange={changeHandler}
                 />

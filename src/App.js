@@ -32,23 +32,21 @@ const bathroomList = [
     id: 'b1',
     name: 'Terry toilet',
     description: 'hellooo',
-    rating: '3.0',
+    rating: '5.0',
     image: bathroomPictureLink
   },
   {
     id: 'b3',
     name: 'Snelling toilet',
     description: 'hellooo',
-    rating: '2.0',
+    rating: '5.0',
     image: bathroomPictureLink
   }
 ]
 
 
 function App() {
-  useEffect(() => {
-    updateBathrooms();
-  }, []);
+
 
 
   const [bathroom, setBathroom] = useState(null);
@@ -58,13 +56,8 @@ function App() {
     setBathroom(b);
   }
   
-  const coordinates = [
-    { lat: 33.9505255, lng: -83.3752532 }, // tate
-    { lat: 33.939007914812656, lng: -83.37112344845274 }, // joe frank
-    { lat: 33.938112288045616, lng: -83.36809391804614 }, // busbee hall
-    { lat: 33.944787503212645, lng: -83.37645765229763}, // snelling
-  ];
-
+  const [coordinates, setCoordinates] = useState([]);
+  
   const updateBathrooms = () => {
         setBathroom(null);
         fetch("http://localhost:8080/bathrooms", {
@@ -74,13 +67,25 @@ function App() {
             }
       }).then((res) => {
           res.json().then(list => {
-              console.log(list);
+              let coords = [];
               setBathrooms(list);
+              console.log('here1');
+
+              setCoordinates([]);
+              console.log('here2');
+              list.forEach(bathroom => {
+                console.log(`latitude ${bathroom?.latitude} longitude ${bathroom?.longitude}`);
+                console.log('here3');
+                coords.push({lat: parseFloat(bathroom?.latitude), lng: parseFloat(bathroom?.longitude)});
+                setCoordinates(coords);
+              });
           });
   
       });
   }
-
+  useEffect(() => {
+    updateBathrooms();
+  }, []);
   return (
     <div>
 
@@ -104,6 +109,8 @@ function App() {
 
     </div>
   );
+
+
 }
 
 export default App;

@@ -57,7 +57,7 @@ app.post("/add-bathroom", async (req, res) => {
 
     let fail = false;
 
-    ['name', 'description', 'image', 'latitude', 'longitude'].forEach(prop => {
+    ['name', 'description', 'image', 'rating', 'latitude', 'longitude'].forEach(prop => {
         if (!body[prop]) {
             if (fail) {
                 return;
@@ -74,9 +74,9 @@ app.post("/add-bathroom", async (req, res) => {
         name: body.name,
         description: body.description,
         image: body.image,
-        rating: 0.0,
-        latitude: parseFloat(body.latitude),
-        longitude: parseFloat(body.longitude)
+        rating: body.rating,
+        latitude: body.latitude,
+        longitude: body.longitude
     }
 
     const result = await collection.insertOne(document);
