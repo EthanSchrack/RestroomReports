@@ -49,14 +49,15 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
                         </div>
                     )} */}
                     {(!bathroom && !isFormVisible) && 
-                        <div>There is nothing selected!
-                            <button onClick={showFormHandler}>Add Bathroom</button>
+                        <div class = "select-text">There is nothing selected!
+                            <br></br>
+                            <button onClick={showFormHandler} class="button add">Add <br></br>Bathroom</button>
                         </div>
                     }           
                     {(!bathroom && isFormVisible) &&
                         <div>
                             <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler}/>
-                            <button onClick={closeFormHandler}>Cancel</button>
+                            <button onClick={closeFormHandler}class="button cancel">Cancel</button>
                         </div>
                     }
                     {(bathroom && !isFormVisible) &&
@@ -68,15 +69,17 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
                             
                             
                             <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
-                            <button onClick={showFormHandler}>Edit</button>
-                            <button onClick={deleteHandler}>Delete</button>
-                            <button onClick={onNeedsUpdate}>Close</button>
+                            <br></br>
+                            <button onClick={showFormHandler} class="button edit">Edit</button>
+                            <button onClick={deleteHandler} class="button delete">Delete</button>
+                            <button onClick={onNeedsUpdate} class="button close">Close</button>
                         </div>
                     }
                     {(bathroom && isFormVisible) &&
                         <div>
                            <AddBathroom onAddBathroom={onNeedsUpdate} onClose={closeFormHandler} existingBathroom={bathroom}/>
-                            <button onClick={closeFormHandler}>Cancel</button>
+                            <button onClick={closeFormHandler} class="button cancel">Cancel</button>
+                            
                         </div>
                     }
                 </div>

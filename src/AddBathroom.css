@@ -1,0 +1,36 @@
+.form {
+    text-align: right;
+    right: 170px;
+    position: relative;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: bold;
+    padding:20px;
+}
+
+.textbox {
+    border-radius: 5%;
+}
+
+.submit {
+    width: 80px;
+    height: 50px;
+    margin: 25px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 3px outset rgb(136, 136, 136);
+    background-color: aquamarine;
+    top:20px;
+    right:20px;
+    position: relative;
+
+}
+
+.submit:hover {
+    background-color: rgb(86, 171, 143);
+}
+
