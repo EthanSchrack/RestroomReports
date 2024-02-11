@@ -12,7 +12,7 @@ const Hdr = () => {
             <div className="nav-elements"> 
                 <ul>
                     <li>
-                        <NavLink to="/toilets">Toilets</NavLink>
+                        <NavLink to="/">Toilets</NavLink>
                     </li>
                     <li>
                         <NavLink to="/explore">Explore</NavLink>
