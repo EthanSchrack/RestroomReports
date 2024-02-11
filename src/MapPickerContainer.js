@@ -25,7 +25,7 @@ const MapPickerContainer = () => {
       return;
     }
 
-    // Initialize the map when the component mounts
+    // Initialize the map 
     initMap();
   }, []);
 

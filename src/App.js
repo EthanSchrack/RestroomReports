@@ -106,11 +106,6 @@ function App() {
               <MapWithMarkers coordinates={coordinates} />
             </React.Fragment>
           } />
-          <Route path='/picker' element={
-            <div>
-              <MapPickerContainer />
-            </div>
-          }/>
           <Route path='*' element={
             <div>
               <h3>Error</h3>

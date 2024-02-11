@@ -1,4 +1,3 @@
-// MapWithMarkers.js
 import React, { useRef, useEffect } from 'react';
 
 const MapWithMarkers = ({ coordinates }) => {
