@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import MapPicker from 'react-google-map-picker';
 import MapPickerContainer from "./MapPickerContainer";
 
 
