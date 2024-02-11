@@ -32,14 +32,14 @@ const bathroomList = [
     id: 'b1',
     name: 'Terry toilet',
     description: 'hellooo',
-    rating: '5.0',
+    rating: '3.0',
     image: bathroomPictureLink
   },
   {
     id: 'b3',
     name: 'Snelling toilet',
     description: 'hellooo',
-    rating: '5.0',
+    rating: '2.0',
     image: bathroomPictureLink
   }
 ]

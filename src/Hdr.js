@@ -7,7 +7,7 @@ const Hdr = () => {
     return (    
         <nav className="navbar">
             <div className="hdr">
-                <h2>Restroom Reports</h2>
+                <h2 className="hdrwords">Restroom Reports</h2>
             </div>
             <div className="nav-elements"> 
                 <ul>
