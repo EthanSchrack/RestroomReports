@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Restroom Reports 💩
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Usage
+To run Restroom Reports on your local machine, first download and ```cd``` into the repository, then open a terminal and run the following command:
+```
+npm run start-server
+```
+Then open another terminal and run this command: 
+```
+npm start
+```
 
-## Available Scripts
+## Project Contributors: 
+- Ivan Cao 
+- Ethan Schrack
+- Whitman Stewart
+- Aristotelis Tzetzis 
 
-In the project directory, you can run:
+## Purpose: 
+What is one thing everyone does every day? That's right, use the bathroom! So would it be too much to ask for our community to have a general idea of what a bathroom is like before walking in? Our group doesn’t think so, so we came up with the “Restroom Reports” project. Our project provides an interactive environment for users to read and share reviews of the various bathrooms at UGA. Users are able to use the interactive map to locate bathrooms near them, and post a review and description for future bathroom-goers to use as reference. We believe this will help our community by providing a more comfortable and personalized bathroom experience and help eliminate the dreadful hunt for the best “spot”. Say goodbye to blind dates with bathrooms, and hello to “Restroom Reports”. 
 
-### `npm start`
+## Tools Utilized: 
+- MongoDB Atlas 
+- Express.js
+- React 
+- Node.js 
+- Google Maps JavaScript API
+- Npm docs
+- VSCode
+- GitHub/Git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Problems that we ran into and overcame: 
+- Linking the front end and the back end of the project together caused some confusing errors. We were able to overcome this by taking it slowly one error at a time and thinking through solutions. 
+- Linking the HTML files to java script functions in order to run them when needed. This was overcome by critical thinking and trial and error. 
+- Creating an interactive map with specific bathroom points was challenging when trying to integrate the google maps API and getting the points to hold their position on the map. We were able to overcome this with research on the topic and trial and error while working together. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Frameworks: 
+- Google Maps JavaScript API
+- MongoDB 
+- React.js
+- Express.js 
+- Node.js 
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

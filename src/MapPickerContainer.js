@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import MapPicker from 'react-google-map-picker'
-
 const DefaultZoom = 15;
 
 const MapPickerContainer = () => {
@@ -27,7 +25,7 @@ const MapPickerContainer = () => {
       return;
     }
 
-    // Initialize the map when the component mounts
+    // Initialize the map 
     initMap();
   }, []);
 
