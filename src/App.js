@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MapWithMarkers from './MapsWithMarkers.js';
+import MapPickerContainer from './MapPickerContainer.js';
 
 const bathroomPictureLink = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/VillaMitre50.jpg/1280px-VillaMitre50.jpg";
 
@@ -105,6 +106,11 @@ function App() {
               <MapWithMarkers coordinates={coordinates} />
             </React.Fragment>
           } />
+          <Route path='/picker' element={
+            <div>
+              <MapPickerContainer />
+            </div>
+          }/>
           <Route path='*' element={
             <div>
               <h3>Error</h3>
