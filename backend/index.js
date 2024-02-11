@@ -57,7 +57,7 @@ app.post("/add-bathroom", async (req, res) => {
 
     let fail = false;
 
-    ['name', 'description', 'image'].forEach(prop => {
+    ['name', 'description', 'image', 'latitude', 'longitude'].forEach(prop => {
         if (!body[prop]) {
             if (fail) {
                 return;
@@ -74,7 +74,9 @@ app.post("/add-bathroom", async (req, res) => {
         name: body.name,
         description: body.description,
         image: body.image,
-        rating: 0.0
+        rating: 0.0,
+        latitude: parseFloat(body.latitude),
+        longitude: parseFloat(body.longitude)
     }
 
     const result = await collection.insertOne(document);
@@ -116,7 +118,7 @@ app.put("/update-bathroom", async (req, res) => {
     }
     const updates = [];
 
-    ['name', 'description', 'image', 'rating'].forEach(prop => {
+    ['name', 'description', 'image', 'rating', 'latitude', 'longitude'].forEach(prop => {
         if (body[prop]) {
             updates.push({[prop]: body[prop]});
         }
@@ -160,6 +162,8 @@ app.delete("/delete-bathroom", async(req, res) => {
     }
     res.status(200).send({"id": id, "deleted": true});
 
-})
+});
+
+
 
 start().catch(console.dir);

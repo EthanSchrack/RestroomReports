@@ -68,6 +68,7 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
                             <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
                             <button onClick={showFormHandler}>Edit</button>
                             <button onClick={deleteHandler}>Delete</button>
+                            <button onClick={onNeedsUpdate}>Close</button>
                         </div>
                     }
                     {(bathroom && isFormVisible) &&
