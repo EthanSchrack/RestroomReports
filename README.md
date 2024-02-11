@@ -1,3 +1,5 @@
+# Restroom Reports 💩
+
 ## Project Contributors: 
 - Ivan Cao 
 - Ethan Schrack
