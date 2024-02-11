@@ -13,6 +13,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MapWithMarkers from './MapsWithMarkers.js';
 import MapPickerContainer from './MapPickerContainer.js';
 
+
 const bathroomPictureLink = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/VillaMitre50.jpg/1280px-VillaMitre50.jpg";
 
 
@@ -47,9 +48,8 @@ const bathroomList = [
 ]
 
 
+
 function App() {
-
-
 
   const [bathroom, setBathroom] = useState(null);
   const [bathrooms, setBathrooms] = useState([]);

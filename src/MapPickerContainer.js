@@ -1,44 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import MapPicker from 'react-google-map-picker'
 
-const DefaultLocation = { lat: 33.949771, lng: -83.3722669};
 const DefaultZoom = 15;
 
 const MapPickerContainer = () => {
 
-  const [defaultLocation, setDefaultLocation] = useState(DefaultLocation);
+  const [clickedLatLng, setClickedLatLng] = useState(null);
 
-  const [location, setLocation] = useState(defaultLocation);
-  const [zoom, setZoom] = useState(DefaultZoom);
+  useEffect(() => {
+    const initMap = () => {
+      const myLatlng = { lat: 33.949771, lng: -83.3722669};
+      const map = new window.google.maps.Map(document.getElementById("map"), {
+        zoom: DefaultZoom,
+        center: myLatlng,
+      });
 
-  function handleChangeLocation (lat, lng){
-    setLocation({lat:lat, lng:lng});
-  }
-  
-  function handleChangeZoom (newZoom){
-    setZoom(newZoom);
-  }
+      map.addListener("click", (mapsMouseEvent) => {
+        setClickedLatLng(mapsMouseEvent.latLng.toJSON());
+      });
+    };
 
-  function handleResetLocation(){
-    setDefaultLocation({ ... DefaultLocation});
-    setZoom(DefaultZoom);
-  }
+    if (!window.google) {
+      // Google Maps API script hasn't been loaded yet
+      console.error("Google Maps API not loaded");
+      return;
+    }
+
+    // Initialize the map when the component mounts
+    initMap();
+  }, []);
 
   return (
-    <div id='mapDiv'>
-  <button onClick={handleResetLocation}>Reset Location</button>
-  <label>Latitute:</label><input type='text' value={location.lat} disabled/>
-  <label>Longitute:</label><input type='text' value={location.lng} disabled/>
-  <label>Zoom:</label><input type='text' value={zoom} disabled/>
-  
-    <MapPicker defaultLocation={defaultLocation}
-    zoom={zoom}
-    mapTypeId="roadmap"
-    style={{height:'100px'}}
-    onChangeLocation={handleChangeLocation} 
-    onChangeZoom={handleChangeZoom}
-    apiKey='AIzaSyAnLas5ZZCQin7XeX-PE1yaOITlTja8W04'/>
+    <div>
+        <div id='map' style={{height: '400px' }}></div>
+        {clickedLatLng && (
+        <div>
+          <h2>Clicked Location</h2>
+          <p>Latitude: {clickedLatLng.lat}</p>
+          <p>Longitude: {clickedLatLng.lng}</p>
+        </div>
+      )}
+     
     </div>
   );
 }
