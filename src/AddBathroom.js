@@ -36,7 +36,17 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
             ...prevData,
             [name]: value,
         }));
+
+    
     };
+
+    const locationChangeHandler = (lat, lng) => {
+        setBathroomFeatures((prevData) => ({
+            ...prevData,
+            latitude: lat,
+            longitude: lng
+        }));
+    }
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -159,7 +169,7 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
 
             </form>
             <span class="map">
-                <MapPickerContainer />
+                <MapPickerContainer onLocationChange={locationChangeHandler} />
             </span>
         </div>
     );
