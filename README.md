@@ -1,5 +1,15 @@
 # Restroom Reports 💩
 
+## Usage
+To run Restroom Reports on your local machine, first download and ```cd``` into the repository, then open a terminal and run the following command:
+```
+npm run start-server
+```
+Then open another terminal and run this command: 
+```
+npm start
+```
+
 ## Project Contributors: 
 - Ivan Cao 
 - Ethan Schrack
