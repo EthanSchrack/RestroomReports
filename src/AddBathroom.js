@@ -3,7 +3,6 @@ import MapPicker from 'react-google-map-picker';
 import MapPickerContainer from "./MapPickerContainer";
 
 
-
 const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
 
     // const DefaultLocation = { lat: 33.949771, lng: -83.3722669 };
@@ -56,6 +55,11 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
             [name]: value,
         }));
     };
+
+    const locationChangeHandler = (lat, lng) => {
+        bathroomFeatures.latitude = lat;
+        bathroomFeatures.longitude = lng;
+    }
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -148,24 +152,11 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                     value={bathroomFeatures.image}
                     onChange={changeHandler}
                 />
-                <label>Latitude</label>
-                <input 
-                    name="latitude"
-                    type="number"
-                    value={bathroomFeatures.latitude}
-                    onChange={changeHandler}
-                />
-                <label>Longitude</label>
-                <input 
-                    name="longitude"
-                    type="number"
-                    value={bathroomFeatures.longitude}
-                    onChange={changeHandler}
-                />
-                <button type="submit">Submit</button>
+                <MapPickerContainer onChangeLocation={locationChangeHandler}/>
+
+                <button id="submit-button" type="submit">Submit</button>
 
             </form>
-            <MapPickerContainer />
         </div>
     );
 
