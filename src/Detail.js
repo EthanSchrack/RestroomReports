@@ -35,21 +35,6 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
             <div className="detail">
                 <div className="split right">
                     <div className="centered">
-                        {/* {bathroom ? (
-
-                            <div>
-                                <h1>Details</h1>
-                                <h2>{bathroom.name}</h2>
-                                <h2>{bathroom.rating + "/5"}</h2>
-                                <p>{bathroom.description}</p>
-                                <img src={bathroom.image} width="200px" height="200px" alt="Toilet"/>
-                                <button onClick={showFormHandler}>Edit</button>
-                            </div>
-                        ): (
-                            <div>There is nothing selected!
-                                <button onClick={showFormHandler}>Add Bathroom</button>
-                            </div>
-                        )} */}
                         {(!bathroom && !isFormVisible) && 
                             <div class = "select-text">There is nothing selected!
                                 <br></br>

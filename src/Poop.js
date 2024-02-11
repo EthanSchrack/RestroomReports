@@ -7,7 +7,7 @@ export function spawnPoop() {
 
     let poopContainer = document.getElementById('poop');
     poopContainer.style.position = "absolute";
-    let x_pos = Math.random() * 2000;
+    let x_pos = Math.random() * 1200;
     let y_pos = Math.random() * 100;
     poopContainer.style.left = x_pos+'px';
     poopContainer.style.top = y_pos+'py';
@@ -15,7 +15,7 @@ export function spawnPoop() {
 
     poopContainer = document.getElementById('poop1');
     poopContainer.style.position = "absolute";
-    x_pos = Math.random() * 2000;
+    x_pos = Math.random() * 1200;
     y_pos = Math.random() * 1000;
     poopContainer.style.left = x_pos+'px';
     poopContainer.style.top = y_pos+'py';
@@ -24,7 +24,7 @@ export function spawnPoop() {
 
     poopContainer = document.getElementById('poop2');
     poopContainer.style.position = "absolute";
-    x_pos = Math.random() * 2000;
+    x_pos = Math.random() * 1200;
     y_pos = Math.random() * 1000;
     poopContainer.style.left = x_pos+'px';
     poopContainer.style.top = y_pos+'py';
@@ -32,7 +32,7 @@ export function spawnPoop() {
 
     poopContainer = document.getElementById('poop3');
     poopContainer.style.position = "absolute";
-    x_pos = Math.random() * 2000;
+    x_pos = Math.random() * 1200;
     y_pos = Math.random() * 1000;
     poopContainer.style.left = x_pos+'px';
     poopContainer.style.top = y_pos+'py';
@@ -40,18 +40,10 @@ export function spawnPoop() {
 
     poopContainer = document.getElementById('poop4');
     poopContainer.style.position = "absolute";
-    x_pos = Math.random() * 2000;
+    x_pos = Math.random() * 1200;
     y_pos = Math.random() * 1000;
     poopContainer.style.left = x_pos+'px';
     poopContainer.style.top = y_pos+'py';
-    poopContainer.innerHTML = text;
-
-    poopContainer = document.getElementById('poop4');
-    poopContainer.style.position = "absolute";
-    x_pos = Math.random() * 1500;
-    y_pos = Math.random() * 1000;
-    poopContainer.style.left = x_pos+'px';
-    poopContainer.style.bottom = y_pos+'py';
     poopContainer.innerHTML = text;
 
 }
