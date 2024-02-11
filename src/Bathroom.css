@@ -6,22 +6,39 @@
     background-color:rgb(211, 255, 255);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding:5px;
-    margin: 10px;
-    margin-right: 41%;
-    height:75px;
+    margin: 1%;
+    /* margin-right: 41%; */
+    min-height: 75px;
+    display:flex;
+    width:855px;
+    /* height:fit-content; */
     border:2px outset rgb(182, 57, 22);
     border-radius: 10px;
+    overflow-wrap:break-word;
+    overflow: hidden;
+
 }
 
 .bathroom-element-picture {
     text-align: left;
-    width: 25px;
+    width: 100px;
     float:left;
 }
 
 .bathroom-element-text {
     text-align:left;
-    width:75%;
-    float:right;
+    left:150px;
+    width:600px;
+    /* float:right; */
+    /* position: absolute; */
+    padding:0;
+    overflow: hidden;
+}
+
+.stars{
+    text-align:left;
+    left:750px;
+    width:850px;
+    position: absolute;
 }
 

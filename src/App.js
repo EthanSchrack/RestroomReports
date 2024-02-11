@@ -89,7 +89,7 @@ function App() {
     updateBathrooms();
   }, []);
   return (
-    <div>
+    <div >
 
       <BrowserRouter>
         <Hdr />

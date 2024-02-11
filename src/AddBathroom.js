@@ -3,6 +3,7 @@ import MapPicker from 'react-google-map-picker';
 import MapPickerContainer from "./MapPickerContainer";
 
 
+import "./AddBathroom.css";
 
 const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
 
@@ -129,21 +130,25 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
     return (
         <div className="form">
                 <form onSubmit={submitHandler}>
-                <label>Name</label>
+                <label class="text">Name</label>
                 <input 
                     name="name"
                     type="text"
                     value={bathroomFeatures.name}
                     onChange={changeHandler}
+                    class="textbox"
                 />
-                <label>Description</label>
+                <br></br>
+                <label class="text">Description</label>
                 <input 
                     name="description"
                     type="text"
                     value={bathroomFeatures.description}
                     onChange={changeHandler}
+                    class="textbox"
                 />
-                <label>Rating</label>
+                <br></br>
+                <label class="text">Rating</label>
                 <input 
                     name="rating"
                     type="number"
@@ -151,13 +156,16 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
                     max="5"
                     value={bathroomFeatures.rating}
                     onChange={changeHandler}
+                    class="textbox"
                 />
-                <label>Image</label>
+                <br></br>
+                <label class="text">Image</label>
                 <input 
                     name="image"
                     type="text"
                     value={bathroomFeatures.image}
                     onChange={changeHandler}
+                    class="textbox"
                 />
                 
                 <button type="submit">Submit</button>

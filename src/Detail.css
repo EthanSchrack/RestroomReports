@@ -1,6 +1,7 @@
 .detail {
     text-align: center;
     background-color: rgb(255, 255, 255);
+    overflow: hidden;
 }
 
 .split {
@@ -21,12 +22,88 @@
     border-right:2px solid #000000;
     border: outset rgb(165, 48, 42);
     border-radius:5px;
+    
 }
 
 .centered {
     position: relative;
-    top: 18%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    text-align: top;
+}
+
+.button {
+    width: 80px;
+    height: 50px;
+    margin: 25px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 3px outset rgb(136, 136, 136);
+
+}
+
+.button:hover {
+    background-color: rgb(33, 42, 49);
+}
+
+.edit {
+    background-color: aquamarine;
+}
+
+.edit:hover {
+    background-color: rgb(86, 171, 143);
+}
+
+
+.delete {
+    background-color: red;
+}
+
+.delete:hover {
+    background-color: rgb(152, 0, 0);
+}
+
+
+.close {
+    background-color: rgb(240, 236, 22);
+}
+
+.close:hover {
+    background-color: rgb(129, 127, 12);
+}
+
+
+.add {
+    width: 140px;
+    height: 90px;
+    font-size: 20px;
+    background-color: aquamarine;
+    border: 10px outset rgb(59, 154, 59);
+    border-radius: 10%;
+}
+
+.add:hover {
+    background-color: rgb(66, 136, 113);
+}
+
+
+.select-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.cancel {
+    position: relative;
+    bottom:80px;
+    right:50px;
+    background-color: red;
+
+}
+
+.cancel:hover {
+    background-color: rgb(152, 0, 0);
 }
