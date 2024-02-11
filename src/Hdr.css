@@ -1,17 +1,7 @@
 .navbar {
     position: relative;
     border-radius: 5px;
-
-.hdr {
-    background-color: brown;
-    margin: 0;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    border-bottom: 2px solid black;
-  }
+    overflow-x: hidden;
 
 .nav-elements ul {
     display: flex;    
@@ -49,6 +39,18 @@
     overflow: hidden;
     border: 2px solid black;
 }
+
+.hdr {
+    background-color: brown;
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid black;
+    overflow: hidden;
+  }
 
 .hdrwords {
     font-size: 30px;

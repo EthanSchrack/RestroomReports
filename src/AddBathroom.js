@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./AddBathroom.css";
 
 const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
     
@@ -94,49 +95,61 @@ const AddBathroom = ({onAddBathroom, existingBathroom, onClose}) => {
     return (
         <div className="form">
                 <form onSubmit={submitHandler}>
-                <label>Name</label>
+                <label class="text">Name</label>
                 <input 
                     name="name"
                     type="text"
                     value={bathroomFeatures.name}
                     onChange={changeHandler}
+                    class="textbox"
                 />
-                <label>Description</label>
+                <br></br>
+                <label class="text">Description</label>
                 <input 
                     name="description"
                     type="text"
                     value={bathroomFeatures.description}
                     onChange={changeHandler}
+                    class="textbox"
                 />
-                <label>Rating</label>
+                <br></br>
+                <label class="text">Rating</label>
                 <input 
                     name="rating"
                     type="number"
                     value={bathroomFeatures.rating}
                     onChange={changeHandler}
+                    class="textbox"
                 />
-                <label>Image</label>
+                <br></br>
+                <label class="text">Image</label>
                 <input 
                     name="image"
                     type="text"
                     value={bathroomFeatures.image}
                     onChange={changeHandler}
+                    class="textbox"
                 />
-                <label>Latitude</label>
+                <br></br>
+                <label class="text">Latitude</label>
                 <input 
                     name="latitude"
                     type="number"
                     value={bathroomFeatures.latitude}
                     onChange={changeHandler}
+                    class="textbox"
                 />
-                <label>Longitude</label>
+                <br></br>
+                <label class="text">Longitude</label>
                 <input 
                     name="longitude"
                     type="number"
                     value={bathroomFeatures.longitude}
                     onChange={changeHandler}
+                    class="textbox"
                 />
-                <button type="submit">Submit</button>
+                <br></br>
+                <button type="submit" class="submit">Submit</button>
 
             </form>
 
