@@ -1,14 +1,16 @@
 .navbar {
     position: relative;
+    border-radius: 5px;
+
 .hdr {
     background-color: brown;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 15px;
+    margin: 0;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    border-bottom: 2px solid black;
   }
 
 .nav-elements ul {
@@ -30,6 +32,7 @@
     color: #000000;
     font-weight: 500;
     position: relative;
+    
   }
   
   .nav-elements ul a.active::after {
@@ -40,6 +43,7 @@
     width: 75%;
     height: 2px;
     background-color: #a39fad;
+    
   }
     margin: 0;
     overflow: hidden;
@@ -47,6 +51,7 @@
 }
 
 .hdrwords {
+    font-size: 30px;
     text-align: left;
     padding: 10px;
     padding-left: 5%;
@@ -59,7 +64,7 @@
 
 @keyframes move-words {
     0% {
-        left: 100%;
+        left: 150%;
     }
 
     100% {

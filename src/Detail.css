@@ -18,15 +18,15 @@
     right: 0;
     background-color: rgb(186, 186, 186);
     border-left:2px solid black;
-    border-right:2px solid black;
-
+    border-right:2px solid #000000;
+    border: outset rgb(165, 48, 42);
+    border-radius:5px;
 }
 
 .centered {
     position: relative;
-    top: 30%;
+    top: 18%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-
 }

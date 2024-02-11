@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import "./Bathroom.css";
 import {createStars} from "./Stars";
 
-// createStars();
 const Bathroom = (props) => {
     useEffect(() => {
         createStars(props.name, props.rating);
