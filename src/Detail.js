@@ -16,7 +16,7 @@ const Detail = ({bathroom, onNeedsUpdate}) => {
     };
 
     const deleteHandler = () => {
-        fetch(`http://localhost:8080/delete-bathroom?id=${bathroom.id}`, {
+        fetch(`http://50.116.37.86:8080/delete-bathroom?id=${bathroom.id}`, {
             method: "DELETE",
             mode: 'cors',
             headers: {

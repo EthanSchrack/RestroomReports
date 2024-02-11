@@ -51,7 +51,7 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
     const submitHandler = (event) => {
         event.preventDefault();
         if (!existingBathroom) {
-            fetch("http://localhost:8080/add-bathroom", {
+            fetch("http://50.116.37.86:8080/add-bathroom", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
             }
             console.log(Object.assign({ "id": bathroomFeatures.id }, updated));
 
-            fetch("http://localhost:8080/update-bathroom", {
+            fetch("http://50.116.37.86:8080/update-bathroom", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

@@ -62,7 +62,7 @@ function App() {
   
   const updateBathrooms = () => {
         setBathroom(null);
-        fetch("http://localhost:8080/bathrooms", {
+        fetch("http://50.116.37.86:8080/bathrooms", {
           method: "GET",
           headers: {
               "Content-Type": "application/json",
