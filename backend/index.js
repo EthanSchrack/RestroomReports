@@ -42,7 +42,7 @@ async function start() {
 app.get("/bathrooms", async (req, res) => {
     try {
         const collection = await db.collection("Bathrooms");
-        const results = await collection.find({}).toArray();
+        const results = await collection.find({}).sort({name: 1}).toArray();
         res.json(results);
     } catch {
         res.status(500).send();
